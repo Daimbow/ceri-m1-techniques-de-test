@@ -19,3 +19,5 @@ public interface IPokemonMetadataProvider {
 	PokemonMetadata getPokemonMetadata(int index) throws PokedexException;
 	
 }
+
+
