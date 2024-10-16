@@ -326,8 +326,5 @@ public class IPokemonMetadataProviderTest {
 
 		
 		}
-	 
-
-	
-
+		 
 }
