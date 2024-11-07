@@ -29,7 +29,6 @@ jobs:
   
 workflows:
   sample: 
-
     jobs:
       - build-and-test:
           filters:
