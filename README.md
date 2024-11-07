@@ -44,4 +44,4 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 - Badge couverture de test : [![codecov](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test/graph/badge.svg?token=ITXLY2VFN4)](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test)
 
 
-[![codecov](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test/graphs/sunburst.svg?token=ITXLY2VFN4)
+[![codecov](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test/graphs/sunburst.svg?token=ITXLY2VFN4)]
