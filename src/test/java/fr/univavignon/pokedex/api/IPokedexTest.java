@@ -184,6 +184,7 @@ public class IPokedexTest {
 	    
 	    @Test
 	    public void testGetPokemonsWithComparatorMultiple() {
+	    	
 	        IPokedex pokedex = mock(IPokedex.class);
 	        Pokemon bulbi = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
 	        Pokemon aquali = new Pokemon(133,"Aquali",186 , 168, 260, 2729, 202, 5000 , 4, 0.100);
