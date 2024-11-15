@@ -84,6 +84,62 @@ public class IPokedexFactoryTest{
         assertNull(mockPokedex);
         
     }
+    
+    // Test implémentation de la classe
+    
+    @Test
+    public void testCreatePokedex_ValidParameters_Implementation() {
+
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();  
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider); 
+        
+        IPokedexFactory pokedexFactory = new PokedexFactory();  
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+
+        assertNotNull(pokedex);
+        assertEquals(Pokedex.class, pokedex.getClass());
+    }
+
+    @Test
+    public void testCreatePokedex_NullMetadataProvider_Implementation() {
+        IPokemonFactory pokemonFactory = new PokemonFactory(new PokemonMetadataProvider()); 
+        
+        IPokedexFactory pokedexFactory = new PokedexFactory();  
+        IPokedex pokedex = pokedexFactory.createPokedex(null, pokemonFactory);
+
+        assertNull(pokedex);
+    }
+    
+    @Test
+    public void testCreatePokedex_NullPokemonFactory_Implementation() {
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider(); 
+        
+        IPokedexFactory pokedexFactory = new PokedexFactory();  
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, null);
+
+        assertNull(pokedex);
+    }
+
+    @Test
+    public void testCreatePokedex_NullBothParameters_Implementation() {
+        IPokedexFactory pokedexFactory = new PokedexFactory();  
+        IPokedex pokedex = pokedexFactory.createPokedex(null, null);
+
+        assertNull(pokedex);
+    }
+
+    @Test
+    public void testCreatePokedex_Implementation() {
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider(); 
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);  
+        
+        IPokedexFactory pokedexFactory = new PokedexFactory();  
+        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+
+        assertNotNull(pokedex);
+        assertEquals(Pokedex.class, pokedex.getClass());
+    }
+    
 
     
     

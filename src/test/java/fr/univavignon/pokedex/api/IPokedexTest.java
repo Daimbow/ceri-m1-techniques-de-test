@@ -205,6 +205,9 @@ public class IPokedexTest {
 	        Mockito.verify(pokedex).getPokemons(comparator);
 	    }
 	    
+	    
+	    // Test implémentation de la classe
+
 	    @Test
 	    public void testSize_Imp() {
 	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
