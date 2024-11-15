@@ -110,6 +110,7 @@ public class IPokedexFactoryTest{
         assertNull(pokedex);
     }
     
+    
     @Test
     public void testCreatePokedex_NullPokemonFactory_Implementation() {
         IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider(); 
