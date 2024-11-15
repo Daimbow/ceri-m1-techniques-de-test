@@ -141,6 +141,22 @@ public class IPokedexFactoryTest{
         assertEquals(Pokedex.class, pokedex.getClass());
     }
     
+    @Test
+    public void testCreatePokemon_Exception_Imp() {
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider() {
+            @Override
+            public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+                throw new PokedexException("Failed to retrieve metadata");
+            }
+        };
+        
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+        
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 500, 100, 1000, 20);
+        
+        assertNull(pokemon);
+    }
+    
 
     
     
