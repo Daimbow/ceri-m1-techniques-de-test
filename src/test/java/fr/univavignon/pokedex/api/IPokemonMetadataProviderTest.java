@@ -406,7 +406,6 @@ public class IPokemonMetadataProviderTest {
 		        
 		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(150);
 
-		        // Comparer les propriétés internes des deux objets
 		        assertEquals(expectedPokemon.getIndex(), actualPokemon.getIndex());
 		        assertEquals(expectedPokemon.getName(), actualPokemon.getName());
 

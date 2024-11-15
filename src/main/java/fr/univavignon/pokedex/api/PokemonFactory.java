@@ -11,12 +11,11 @@ public class PokemonFactory implements IPokemonFactory {
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
         if (index < 0 || index >= 150) {
-            System.err.println("Failed to create Pokemon: Invalid Pokémon index: " + index);
+            System.err.println(index);
             return null;
         }
 
         if (cp < 0 || hp < 0 || dust < 0 || candy < 0) {
-            System.err.println("Failed to create Pokemon: Invalid input values (cp, hp, dust, candy)");
             return null;
         }
 
@@ -30,7 +29,7 @@ public class PokemonFactory implements IPokemonFactory {
             return new Pokemon(index, metadata.getName(), attack, defense, stamina, cp, hp, dust, candy, 50);
 
         } catch (PokedexException e) {
-            System.err.println("Failed to create Pokemon: " + e.getMessage());
+            System.err.println(e.getMessage());
             return null;
         }
     }

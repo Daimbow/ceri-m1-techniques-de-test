@@ -157,10 +157,5 @@ public class IPokedexFactoryTest{
         assertNull(pokemon);
     }
     
-
-    
-    
-
-
 	
 }
