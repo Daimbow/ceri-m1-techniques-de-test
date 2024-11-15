@@ -17,13 +17,8 @@ public class IPokedexTest {
 	    @Test
 	    public void ValideTestSize() {
 	    	
-		    IPokedex pokedex;
-	    	IPokemonMetadataProvider mockMetadataProvider = new PokemonMetadataProvider();
-	        IPokemonFactory mockPokemonFactory = new PokemonFactory(mockMetadataProvider);
-
-
+		    IPokedex pokedex = mock(IPokedex.class);
 	    	
-	        pokedex = new Pokedex(mockMetadataProvider,mockPokemonFactory);
 	        Pokemon Pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
 	        
 	        pokedex.addPokemon(Pokemon);
