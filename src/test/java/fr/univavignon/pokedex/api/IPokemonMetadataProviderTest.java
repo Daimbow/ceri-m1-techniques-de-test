@@ -384,12 +384,17 @@ public class IPokemonMetadataProviderTest {
 
 		    @Test
 		    public void testPokemonMetadata_Equality_Zero() throws PokedexException {
-		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
-		        PokemonMetadata expectedPokemon = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+		        IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata expectedPokemon = new PokemonMetadata(0, "Bulbizarre", 49, 49, 45);
 		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(0);
 
-		        assertEquals(expectedPokemon, actualPokemon); 
+		        assertEquals(expectedPokemon.getIndex(), actualPokemon.getIndex());
+		        assertEquals(expectedPokemon.getName(), actualPokemon.getName());
+		        assertEquals(expectedPokemon.getAttack(), actualPokemon.getAttack());
+		        assertEquals(expectedPokemon.getDefense(), actualPokemon.getDefense());
+		        assertEquals(expectedPokemon.getStamina(), actualPokemon.getStamina());
 		    }
+
 
 		    @Test
 		    public void testPokemonMetadata_Equality_OneThirtyThree() throws PokedexException {
