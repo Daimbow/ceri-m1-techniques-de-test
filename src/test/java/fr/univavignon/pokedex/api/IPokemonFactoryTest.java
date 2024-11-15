@@ -290,16 +290,19 @@ public class IPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon_ValidValues_MaxStat_Imp() {
-    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+
         IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
         Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
         assertNotNull(pokemon);
+
         assertEquals(141, pokemon.getAttack());   
         assertEquals(141, pokemon.getDefense());  
         assertEquals(105, pokemon.getStamina());  
     }
+
     
     
 }
