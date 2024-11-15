@@ -13,7 +13,7 @@ public class IPokemonMetadataProviderTest {
 	 @Test
 	public void ExceptionGetPokemonMetadataTest_OnefiftyOne() throws PokedexException{
 		
-		IPokemonMetadataProvider mockPokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+		IPokemonMetadataProvider mockPokemonMetadataProvider = new PokemonMetadataProvider();
 		
 		Mockito.when(mockPokemonMetadataProvider.getPokemonMetadata(151)).thenThrow(new PokedexException("Invalide index"));
 		

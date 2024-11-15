@@ -17,9 +17,13 @@ public class IPokemonTrainerFactoryTest {
     	String name = "Ash";
         Team trainerTeam = Team.MYSTIC;
 
-        IPokedex mockPokedex = Mockito.mock(IPokedex.class);
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    	IPokemonMetadataProvider mockMetadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory mockPokemonFactory = new PokemonFactory( mockMetadataProvider );
+                
+        IPokedex mockPokedex = new Pokedex(mockMetadataProvider,mockPokemonFactory);
+
+        IPokedexFactory mockPokedexFactory =  new PokedexFactory();
+        IPokemonTrainerFactory mockTrainerFactory = new PokemonTrainerFactory();
 
         PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
 

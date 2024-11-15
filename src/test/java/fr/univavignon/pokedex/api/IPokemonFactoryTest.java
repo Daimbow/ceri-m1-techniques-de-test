@@ -13,7 +13,9 @@ public class IPokemonFactoryTest {
     @Test
     public void testCreatePokemon_ValidValues_IndexZero() {
 
-    	IPokemonFactory mockPokemonFactory = Mockito.mock(IPokemonFactory.class);
+    	IPokemonMetadataProvider mockMetadataProvider = new PokemonMetadataProvider();
+
+    	IPokemonFactory mockPokemonFactory = new PokemonFactory(mockMetadataProvider);
 
         Pokemon Pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
         
