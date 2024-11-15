@@ -186,5 +186,120 @@ public class IPokemonFactoryTest {
         assertEquals(105, createdPokemonMax.getStamina()); 
     }
     
+    @Test
+    public void testCreatePokemon_ValidValues_IndexZero_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+
+        assertNotNull(pokemon);
+        assertEquals("Bulbizarre", pokemon.getName());
+        assertEquals(613, pokemon.getCp());
+        assertEquals(64, pokemon.getHp());
+        assertEquals(4000, pokemon.getDust());
+        assertEquals(4, pokemon.getCandy());
+    }
+
+    @Test
+    public void testCreatePokemon_ValidValues_IndexOneThirtyThree_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+        Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
+
+        assertNotNull(pokemon);
+        assertEquals("Aquali", pokemon.getName());
+        assertEquals(2729, pokemon.getCp());
+        assertEquals(202, pokemon.getHp());
+        assertEquals(5000, pokemon.getDust());
+        assertEquals(4, pokemon.getCandy());
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidIndexZero_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidCP_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidHP_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidDust_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_InvalidCandy_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
+
+        assertNull(pokemon);
+    }
+
+    @Test
+    public void testCreatePokemon_ValidValues_MinStat_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+
+        assertNotNull(pokemon);
+        assertEquals(126, pokemon.getAttack());   
+        assertEquals(126, pokemon.getDefense());  
+        assertEquals(90, pokemon.getStamina());  
+    }
+
+    @Test
+    public void testCreatePokemon_ValidValues_MaxStat_Imp() {
+    	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+
+        assertNotNull(pokemon);
+        assertEquals(141, pokemon.getAttack());   
+        assertEquals(141, pokemon.getDefense());  
+        assertEquals(105, pokemon.getStamina());  
+    }
+    
     
 }
