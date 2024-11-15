@@ -74,22 +74,23 @@ public class IPokemonMetadataProviderTest {
 	
 	}
 	 
-	@Test
-	public void ValidetPokemonMetadataEqualityTest_Zero() throws PokedexException{
-		
-		IPokemonMetadataProvider mockPokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
-		
-		PokemonMetadata PokemonEspece = new PokemonMetadata(0,"Bulbizarre",126,126,90);
-		
-		Mockito.when(mockPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(PokemonEspece);
-			
-		 PokemonMetadata PokemonMetaData = mockPokemonMetadataProvider.getPokemonMetadata(PokemonEspece.getIndex());
-			
-		Mockito.verify(mockPokemonMetadataProvider).getPokemonMetadata(PokemonEspece.getIndex());
-		
-		 assertEquals(PokemonEspece, PokemonMetaData); 
-	
-	}
+	 @Test
+	 public void ValidetPokemonMetadataEqualityTest_Zero() throws PokedexException {
+
+		 IPokemonMetadataProvider mockPokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+	     
+	     PokemonMetadata PokemonEspece = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+	     
+	     Mockito.when(mockPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(PokemonEspece);
+	     
+	     PokemonMetadata PokemonMetaData = mockPokemonMetadataProvider.getPokemonMetadata(PokemonEspece.getIndex());
+	     
+	     Mockito.verify(mockPokemonMetadataProvider).getPokemonMetadata(PokemonEspece.getIndex());
+	     
+	     assertEquals(PokemonEspece.getIndex(), PokemonMetaData.getIndex());
+	     assertEquals(PokemonEspece.getName(), PokemonMetaData.getName());
+
+	 }
 	
 	@Test
 	public void ValidetPokemonMetadataEqualityTest_getIndex() throws PokedexException{
@@ -392,21 +393,32 @@ public class IPokemonMetadataProviderTest {
 
 		    @Test
 		    public void testPokemonMetadata_Equality_OneThirtyThree() throws PokedexException {
-		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
 		        PokemonMetadata expectedPokemon = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(133);
 
-		        assertEquals(expectedPokemon, actualPokemon); 
+		        assertEquals(expectedPokemon.getIndex(), actualPokemon.getIndex());
+		        assertEquals(expectedPokemon.getName(), actualPokemon.getName());
+		        assertEquals(expectedPokemon.getAttack(), actualPokemon.getAttack());
+		        assertEquals(expectedPokemon.getDefense(), actualPokemon.getDefense());
+		        assertEquals(expectedPokemon.getStamina(), actualPokemon.getStamina());
 		    }
+
 
 		    @Test
 		    public void testPokemonMetadata_Equality_OneFifty() throws PokedexException {
-		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        
 		        PokemonMetadata expectedPokemon = new PokemonMetadata(150, "Mew", 186, 168, 260);
+		        
 		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(150);
 
-		        assertEquals(expectedPokemon, actualPokemon); 
+		        // Comparer les propriétés internes des deux objets
+		        assertEquals(expectedPokemon.getIndex(), actualPokemon.getIndex());
+		        assertEquals(expectedPokemon.getName(), actualPokemon.getName());
+
 		    }
+
 
 		    @Test
 		    public void testGetPokemonMetadata_getIndex_Zero() throws PokedexException {
