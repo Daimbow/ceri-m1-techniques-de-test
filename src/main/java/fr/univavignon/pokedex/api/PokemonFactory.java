@@ -23,9 +23,9 @@ public class PokemonFactory implements IPokemonFactory {
         try {
             PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);
 
-            int attack = Math.max(126, Math.min(metadata.getAttack(), 141));
-            int defense = Math.max(126, Math.min(metadata.getDefense(), 141));
-            int stamina = Math.max(90, Math.min(metadata.getStamina(), 105));
+            int attack = Math.min(metadata.getAttack(), 141);
+            int defense = Math.min(metadata.getDefense(), 141);
+            int stamina = Math.min(metadata.getStamina(), 105);
 
             return new Pokemon(index, metadata.getName(), attack, defense, stamina, cp, hp, dust, candy, 50);
 
