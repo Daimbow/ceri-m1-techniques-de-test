@@ -290,6 +290,44 @@ public class IPokedexTest {
 	        assertEquals("Bulbizarre", sortedPokemons.get(0).getName()); 
 	        assertEquals("Aquali", sortedPokemons.get(1).getName()); 
 	    }
+	    
+	    @Test
+	    public void testGetPokemonMetadata_Imp() throws PokedexException {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        PokemonMetadata pokemonMetadata = pokedex.getPokemonMetadata(0);
+	        assertNotNull(pokemonMetadata);
+	        assertEquals(0, pokemonMetadata.getIndex());
+	        assertEquals("Bulbizarre", pokemonMetadata.getName());
+	        
+	        try {
+	            pokedex.getPokemonMetadata(999);  
+	        } catch (PokedexException e) {
+	        	System.out.print(e);
+	        }
+	    }
+	    
+	    @Test
+	    public void testCreatePokemon_Imp() throws PokedexException {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+
+	        Pokemon createdPokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
+	        assertNotNull(createdPokemon);
+	        assertEquals(0, createdPokemon.getIndex());
+	        assertEquals("Bulbizarre", createdPokemon.getName());
+	        assertEquals(613, createdPokemon.getCp());
+	        assertEquals(64, createdPokemon.getHp());
+
+	        pokedex.createPokemon(-1, 613, 64, 4000, 4);
+
+	        pokedex.createPokemon(0, -1, 64, 4000, 4);
+	    }
+
+
 
 
 
