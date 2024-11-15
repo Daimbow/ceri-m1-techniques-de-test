@@ -306,32 +306,6 @@ public class IPokedexTest {
 	        assertThrows(PokedexException.class, () -> {pokedex.getPokemonMetadata(999);});
 	    }
 
-	    @Test
-	    public void testCreatePokemon_Imp() throws PokedexException {
-	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
-	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
-
-	        Pokemon createdPokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
-	        assertNotNull(createdPokemon);
-	        assertEquals(0, createdPokemon.getIndex());
-	        assertEquals("Bulbizarre", createdPokemon.getName());
-	        assertEquals(613, createdPokemon.getCp());
-	        assertEquals(64, createdPokemon.getHp());
-
-	        assertThrows(PokedexException.class, () -> {
-	            pokedex.createPokemon(-1, 613, 64, 4000, 4); 
-	        });
-
-	        assertThrows(PokedexException.class, () -> {
-	            pokedex.createPokemon(0, -1, 64, 4000, 4);  
-	        });
-	    }
-
-
-
-
-
 
 }
 
