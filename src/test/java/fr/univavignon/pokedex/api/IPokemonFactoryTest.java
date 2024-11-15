@@ -298,10 +298,11 @@ public class IPokemonFactoryTest {
 
         assertNotNull(pokemon);
 
-        assertEquals(141, pokemon.getAttack());   
-        assertEquals(141, pokemon.getDefense());  
+        assertEquals(126, pokemon.getAttack());   
+        assertEquals(126, pokemon.getDefense());  
         assertEquals(105, pokemon.getStamina());  
     }
+
 
     
     
