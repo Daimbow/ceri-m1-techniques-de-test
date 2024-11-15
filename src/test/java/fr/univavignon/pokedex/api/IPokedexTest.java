@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
@@ -302,13 +303,9 @@ public class IPokedexTest {
 	        assertEquals(0, pokemonMetadata.getIndex());
 	        assertEquals("Bulbizarre", pokemonMetadata.getName());
 	        
-	        try {
-	            pokedex.getPokemonMetadata(999);  
-	        } catch (PokedexException e) {
-	        	System.out.print(e);
-	        }
+	        assertThrows(PokedexException.class, () -> {pokedex.getPokemonMetadata(999);});
 	    }
-	    
+
 	    @Test
 	    public void testCreatePokemon_Imp() throws PokedexException {
 	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
@@ -322,10 +319,15 @@ public class IPokedexTest {
 	        assertEquals(613, createdPokemon.getCp());
 	        assertEquals(64, createdPokemon.getHp());
 
-	        pokedex.createPokemon(-1, 613, 64, 4000, 4);
+	        assertThrows(PokedexException.class, () -> {
+	            pokedex.createPokemon(-1, 613, 64, 4000, 4); 
+	        });
 
-	        pokedex.createPokemon(0, -1, 64, 4000, 4);
+	        assertThrows(PokedexException.class, () -> {
+	            pokedex.createPokemon(0, -1, 64, 4000, 4);  
+	        });
 	    }
+
 
 
 
