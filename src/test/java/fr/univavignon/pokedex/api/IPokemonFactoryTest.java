@@ -186,6 +186,9 @@ public class IPokemonFactoryTest {
         assertEquals(105, createdPokemonMax.getStamina()); 
     }
     
+	// Test implémentation de la classe
+
+    
     @Test
     public void testCreatePokemon_ValidValues_IndexZero_Imp() {
     	IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();

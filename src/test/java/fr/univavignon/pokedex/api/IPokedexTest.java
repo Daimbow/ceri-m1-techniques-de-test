@@ -204,6 +204,89 @@ public class IPokedexTest {
 	        
 	        Mockito.verify(pokedex).getPokemons(comparator);
 	    }
+	    
+	    @Test
+	    public void testSize_Imp() {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+	        pokedex.addPokemon(pokemon);
+	        
+	        assertEquals(1, pokedex.size());
+	    }
+
+	    @Test
+	    public void testAddPokemon_Imp() {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+	        
+	        int index = pokedex.addPokemon(pokemon);
+	        assertEquals(0, index); 
+	    }
+
+	    @Test
+	    public void testGetPokemon_Imp() throws PokedexException {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        Pokemon pokemon = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+	        pokedex.addPokemon(pokemon);
+	        
+	        Pokemon retrievedPokemon = pokedex.getPokemon(0);
+	        assertNotNull(retrievedPokemon);
+	        assertEquals("Bulbizarre", retrievedPokemon.getName());
+	    }
+
+	    @Test(expected = PokedexException.class)
+	    public void testGetPokemonInvalidIndex() throws PokedexException {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        pokedex.getPokemon(1);
+	    }
+
+	    @Test
+	    public void testGetPokemons_Imp() {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        Pokemon bulbi = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+	        Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 0.1);
+	        pokedex.addPokemon(bulbi);
+	        pokedex.addPokemon(aquali);
+	        
+	        List<Pokemon> pokemons = pokedex.getPokemons();
+	        assertEquals(2, pokemons.size());
+	        assertEquals("Bulbizarre", pokemons.get(0).getName());
+	        assertEquals("Aquali", pokemons.get(1).getName());
+	    }
+
+	    @Test
+	    public void testGetPokemonsWithComparator_Imp() {
+	        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+	        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+	        Pokedex pokedex = new Pokedex(metadataProvider, pokemonFactory);
+	        
+	        Pokemon bulbi = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+	        Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 0.1);
+	        pokedex.addPokemon(bulbi);
+	        pokedex.addPokemon(aquali);
+	        
+	        Comparator<Pokemon> comparator = Comparator.comparing(Pokemon::getCp);
+	        
+	        List<Pokemon> sortedPokemons = pokedex.getPokemons(comparator);
+	        assertEquals(2, sortedPokemons.size());
+	        assertEquals("Bulbizarre", sortedPokemons.get(0).getName()); 
+	        assertEquals("Aquali", sortedPokemons.get(1).getName()); 
+	    }
 
 
 
