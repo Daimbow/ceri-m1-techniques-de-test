@@ -165,6 +165,106 @@ public class IPokemonTrainerFactoryTest {
         assertNull(Trainer);
     }
     
+    // Implémentation de la classe
+    
+    @Test
+    public void testCreateTrainer_ValidValuesMystic_Implementation() {
+        String name = "Ash";
+        Team trainerTeam = Team.MYSTIC;
+        
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+        
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+
+        assertNotNull(createdTrainer);
+        assertEquals(name, createdTrainer.getName());
+        assertEquals(trainerTeam, createdTrainer.getTeam());
+        assertNotNull(createdTrainer.getPokedex());  
+    }
+
+    @Test
+    public void testCreateTrainer_ValidValuesInstinct_Implementation() {
+        String name = "Ash";
+        Team trainerTeam = Team.INSTINCT;
+
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+
+        assertNotNull(createdTrainer);
+        assertEquals(name, createdTrainer.getName());
+        assertEquals(trainerTeam, createdTrainer.getTeam());
+        assertNotNull(createdTrainer.getPokedex());
+    }
+
+    @Test
+    public void testCreateTrainer_ValidValuesValor_Implementation() {
+        String name = "Ash";
+        Team trainerTeam = Team.VALOR;
+
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+
+        assertNotNull(createdTrainer);
+        assertEquals(name, createdTrainer.getName());
+        assertEquals(trainerTeam, createdTrainer.getTeam());
+        assertNotNull(createdTrainer.getPokedex());
+    }
+
+    @Test
+    public void testCreateTrainer_NullName_Implementation() {
+        Team trainerTeam = Team.MYSTIC;
+
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(null, trainerTeam, pokedexFactory);
+
+        assertNull(createdTrainer);
+    }
+
+    @Test
+    public void testCreateTrainer_EmptyName_Implementation() {
+        String name = "";
+        Team trainerTeam = Team.MYSTIC;
+
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+
+        assertNull(createdTrainer);
+    }
+
+    @Test
+    public void testCreateTrainer_NullPokedexFactory_Implementation() {
+        String name = "Ash";
+        Team trainerTeam = Team.MYSTIC;
+
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, null);
+
+        assertNull(createdTrainer);
+    }
+
+    @Test
+    public void testCreateTrainer_NullTeam_Implementation() {
+        String name = "Ash";
+        Team trainerTeam = null;
+
+        IPokedexFactory pokedexFactory = new PokedexFactory();
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+
+        assertNull(createdTrainer);
+    }
+    
     
     
 }
