@@ -3,11 +3,15 @@ package fr.univavignon.pokedex.api;
 import org.junit.Test;
 import org.mockito.Mockito;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Before;
 
 public class IPokemonMetadataProviderTest {
 	
-	
-	
+
+
+    
 	//// Exception
 	
 	 @Test
@@ -327,4 +331,115 @@ public class IPokemonMetadataProviderTest {
 		
 		}
 		 
+		// Test implémentation de la classe
+		 
+		    @Test
+		    public void testGetPokemonMetadata_Real_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertNotNull(pokemon);
+		        assertEquals(0, pokemon.getIndex());
+		        assertEquals("Bulbizarre", pokemon.getName());
+		        assertEquals(126, pokemon.getAttack());
+		        assertEquals(126, pokemon.getDefense());
+		        assertEquals(90, pokemon.getStamina());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_Real_OneThirtyThree() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(133);
+		        assertNotNull(pokemon); 
+		        assertEquals(133, pokemon.getIndex());
+		        assertEquals("Aquali", pokemon.getName());
+		        assertEquals(186, pokemon.getAttack());
+		        assertEquals(168, pokemon.getDefense());
+		        assertEquals(260, pokemon.getStamina());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_Real_OneFifty() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(150);
+		        assertNotNull(pokemon); 
+		        assertEquals(150, pokemon.getIndex());
+		        assertEquals("Mew", pokemon.getName());
+		        assertEquals(186, pokemon.getAttack());
+		        assertEquals(168, pokemon.getDefense());
+		        assertEquals(260, pokemon.getStamina());
+		    }
+
+		    @Test(expected = PokedexException.class)
+		    public void testGetPokemonMetadata_Real_Invalid_NegativeIndex() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        provider.getPokemonMetadata(-1); 
+		    }
+
+		    @Test(expected = PokedexException.class)
+		    public void testGetPokemonMetadata_Real_Invalid_TooLargeIndex() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        provider.getPokemonMetadata(999); 
+		    }
+
+		    @Test
+		    public void testPokemonMetadata_Equality_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata expectedPokemon = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(0);
+
+		        assertEquals(expectedPokemon, actualPokemon); 
+		    }
+
+		    @Test
+		    public void testPokemonMetadata_Equality_OneThirtyThree() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata expectedPokemon = new PokemonMetadata(133, "Aquali", 186, 168, 260);
+		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(133);
+
+		        assertEquals(expectedPokemon, actualPokemon); 
+		    }
+
+		    @Test
+		    public void testPokemonMetadata_Equality_OneFifty() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata expectedPokemon = new PokemonMetadata(150, "Mew", 186, 168, 260);
+		        PokemonMetadata actualPokemon = provider.getPokemonMetadata(150);
+
+		        assertEquals(expectedPokemon, actualPokemon); 
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_getIndex_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertEquals(0, pokemon.getIndex());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_getName_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertEquals("Bulbizarre", pokemon.getName());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_getAttack_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertEquals(126, pokemon.getAttack());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_getDefense_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertEquals(126, pokemon.getDefense());
+		    }
+
+		    @Test
+		    public void testGetPokemonMetadata_getStamina_Zero() throws PokedexException {
+		    	IPokemonMetadataProvider provider = new PokemonMetadataProvider(); 
+		        PokemonMetadata pokemon = provider.getPokemonMetadata(0);
+		        assertEquals(90, pokemon.getStamina());
+		    }
 }
