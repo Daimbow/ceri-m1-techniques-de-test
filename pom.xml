@@ -79,7 +79,6 @@
 	  </executions>
 	  <configuration>
 	    <configLocation>google_checks.xml</configLocation>
-      <outputFileFormat>html</outputFileFormat>
 	    <reportOutputDirectory>${project.build.directory}/checkstyle</reportOutputDirectory>
 	  </configuration>
 	</plugin>

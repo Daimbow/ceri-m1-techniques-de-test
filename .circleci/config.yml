@@ -30,7 +30,7 @@ jobs:
 
       
       - store_artifacts:
-          path: target/checkstyle-result.html
+          path: target/checkstyle-result.xml
           destination: checkstyle-reports
       
       - codecov/upload
@@ -45,7 +45,6 @@ workflows:
             branches:
               only:
                 - master
-
 
 
 
