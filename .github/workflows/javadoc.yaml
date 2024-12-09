@@ -3,7 +3,7 @@ name: Javadoc and Checkstyle Generation and Deployment
 on:
   push:
     branches:
-      - main   
+      - main
 
 jobs:
   generate-javadoc-and-checkstyle:
@@ -20,29 +20,19 @@ jobs:
           java-version: '8'
           distribution: 'adoptopenjdk'
 
-      - name: Génère Javadoc et Checkstyle rapports
-        run: mvn clean javadoc:javadoc checkstyle:check
+      - name: Build with Maven Javadoc and Checkstyle
+        run: mvn -B clean javadoc:javadoc checkstyle:checkstyle
 
-      - name: Configure pour GitHub Pages
+      - name: Copy Checkstyle report to Javadoc directory
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          mkdir -p target/reports/apidocs/checkstyle
+          cp target/checkstyle-*.xml target/reports/apidocs/checkstyle/
 
-      - name: Deploie Javadoc and Checkstyle reports sur la branche gh-pahes
-        run: |
-          mkdir -p gh-pages/javadoc
-          cp -r target/apidocs/* gh-pages/javadoc/
-
-          mkdir -p gh-pages/checkstyle
-          cp -r target/checkstyle/* gh-pages/checkstyle/
-
-          cd gh-pages
-          git init
-          git add .
-          git commit -m "Publish Javadoc and Checkstyle reports"
-
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git push --force origin master:gh-pages
+      - name: Deploy Javadoc and Checkstyle to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/reports/apidocs
 
       - name: Clean-up
-        run: rm -rf gh-pages
+        run: rm -rf ./target/reports/apidocs
