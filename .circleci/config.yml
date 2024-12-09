@@ -16,6 +16,15 @@ jobs:
       - checkout
 
       - run:
+          name: Start SSH agent and add key
+          command: |
+            mkdir -p ~/.ssh
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            eval $(ssh-agent -s)
+            ssh-add ~/.ssh/id_rsa
+
+      - run:
           name: Build
           command: mvn -B -DskipTests clean package
 
@@ -35,13 +44,6 @@ jobs:
           name: Génère Checkstyle Badge
           command: |
             ./checkstyle-badge.sh
-      
-      - run:
-          name: Configurer Git pour utiliser SSH
-          command: |
-            git config --global user.email "julien-jamme@outlook.com"
-            git config --global user.name "Daimbow"
-            git remote set-url origin git@github.com:Daimbow/ceri-m1-techniques-de-test.git
 
       - run:
           name: Update README avec Checkstyle Badge
