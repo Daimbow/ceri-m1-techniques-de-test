@@ -24,15 +24,23 @@ jobs:
           command: mvn test
 
       - run:
-          name: Run Checkstyle
+          name: Execute Checkstyle
           command: mvn checkstyle:check
       
-
       - run:
-          name: Convert Checkstyle XML to HTML
+          name: Génère Checkstyle Badge
           command: |
-            curl -sS https://github.com/checkstyle/checkstyle-xml-reporter/releases/download/v1.4/checkstyle-xml-reporter-1.4.jar > checkstyle-xml-reporter.jar
-            java -jar checkstyle-xml-reporter.jar -i target/checkstyle-reports/checkstyle-result.xml -o target/checkstyle-reports/checkstyle-report.html
+            ./checkstyle-badge.sh
+      
+      - run:
+          name: Update README avec Checkstyle Badge
+          command: |
+            badge_url=$(cat target/checkstyle/checkstyle-badge-url.txt)
+            sed -i "s|https://img.shields.io/badge/.*|$badge_url|" README.md
+            git config --global user.email "julien-jamme@outlook.com"
+            git config --global user.name "Daimbow"
+            git commit -am "Update Checkstyle badge"
+            git push
 
       - store_artifacts:
           path: target/checkstyle-result.xml
