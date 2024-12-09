@@ -45,3 +45,9 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 
 ![codecov](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test/graphs/sunburst.svg?token=ITXLY2VFN4)
+
+
+## Rapports
+
+![CircleCI](https://circleci.com/gh/Daimbow/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
+

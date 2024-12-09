@@ -23,6 +23,11 @@
 	    <version>3.12.4</version> 
 	    <scope>test</scope>
 	</dependency>
+	<dependency>
+	    <groupId>com.puppycrawl.tools</groupId>
+	    <artifactId>checkstyle</artifactId>
+	    <version>10.20.2</version>
+	</dependency>
   </dependencies>
   
   <build>
@@ -60,6 +65,24 @@
           </execution>
         </executions>
       </plugin>
+      
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-checkstyle-plugin</artifactId>
+	  <version>3.1.0</version>
+	  <executions>
+	    <execution>
+	      <goals>
+	        <goal>check</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+	  <configuration>
+	    <configLocation>google_checks.xml</configLocation>
+	    <reportOutputDirectory>${project.build.directory}/checkstyle</reportOutputDirectory>
+	  </configuration>
+	</plugin>
+    
     </plugins>
   </build>
 	
