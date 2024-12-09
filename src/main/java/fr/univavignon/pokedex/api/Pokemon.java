@@ -7,19 +7,29 @@ package fr.univavignon.pokedex.api;
  */
 public final class Pokemon extends PokemonMetadata {
 
-  /** Combat Point of the pokemon. **/
+  /** Combat Point of the pokemon. 
+   * 
+   * **/
   private final int cp;
 
-  /** HP of the pokemon. **/
+  /** HP of the pokemon. 
+   * 
+   * **/
   private final int hp;
 
-  /** Required dust for upgrading this pokemon. **/
+  /** Required dust for upgrading this pokemon.
+   * 
+   *  **/
   private final int dust;
 
-  /** Required candy for upgrading this pokemon. **/
+  /** Required candy for upgrading this pokemon.
+   * 
+   *  **/
   private final int candy;
 
-  /** IV perfection percentage. **/
+  /** IV perfection percentage. 
+   * 
+   * **/
   private final double iv;
 
   /**
@@ -57,27 +67,37 @@ public final class Pokemon extends PokemonMetadata {
     this.iv = iv;
   }
 
-  /** Combat Point getter getter. **/
+  /** Combat Point getter getter.
+   * 
+   *  **/
   public int getCp() {
     return cp;
   }
 
-  /** HP getter. **/
+  /** HP getter. 
+   * 
+   * **/
   public int getHp() {
     return hp;
   }
 
-  /** Dust getter. **/
+  /** Dust getter. 
+   * 
+   * **/
   public int getDust() {
     return dust;
   }
 
-  /** Candy getter. **/
+  /** Candy getter. 
+   * 
+   * **/
   public int getCandy() {
     return candy;
   }
 
-  /** IV getter. **/
+  /** IV getter. 
+   * 
+   * **/
   public double getIv() {
     return iv;
   }

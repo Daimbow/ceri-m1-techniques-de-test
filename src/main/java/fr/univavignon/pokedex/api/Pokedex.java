@@ -33,17 +33,36 @@ public class Pokedex implements IPokedex {
     this.pokemons = new ArrayList<>();
   }
 
+  
+  /**
+   * Retourne le nombre de Pokémon dans le Pokédex.
+   * 
+   * @return Le nombre de Pokémon dans le Pokédex.
+   */
   @Override
   public int size() {
     return pokemons.size();
   }
 
+  /**
+   * Ajoute un Pokémon au Pokédex.
+   * 
+   * @param pokemon Le Pokémon à ajouter.
+   * @return L'identifiant du Pokémon ajouté.
+   */
   @Override
   public int addPokemon(Pokemon pokemon) {
     pokemons.add(pokemon);
     return pokemons.size() - 1;
   }
 
+  /**
+   * Récupère un Pokémon par son identifiant.
+   * 
+   * @param id L'identifiant du Pokémon.
+   * @return Le Pokémon correspondant à l'identifiant donné.
+   * @throws PokedexException Si l'identifiant est invalide.
+   */
   @Override
   public Pokemon getPokemon(int id) throws PokedexException {
     if (id < 0 || id >= pokemons.size()) {
@@ -52,11 +71,22 @@ public class Pokedex implements IPokedex {
     return pokemons.get(id);
   }
 
+  /**
+   * Récupère la liste des Pokémon dans le Pokédex.
+   * 
+   * @return La liste des Pokémon.
+   */
   @Override
   public List<Pokemon> getPokemons() {
     return Collections.unmodifiableList(pokemons);
   }
 
+  /**
+   * Récupère la liste des Pokémon triée selon un critère donné.
+   * 
+   * @param order Le comparateur à utiliser pour trier les Pokémon.
+   * @return La liste triée des Pokémon.
+   */
   @Override
   public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
     List<Pokemon> sortedPokemons = new ArrayList<>(pokemons);
@@ -64,11 +94,29 @@ public class Pokedex implements IPokedex {
     return Collections.unmodifiableList(sortedPokemons);
   }
 
+  /**
+   * Récupère les métadonnées d'un Pokémon à partir de son index.
+   * 
+   * @param index L'index du Pokémon pour lequel récupérer les métadonnées.
+   * @return Les métadonnées du Pokémon.
+   * @throws PokedexException Si l'index est invalide ou si un problème survient lors
+   *                           de la récupération des métadonnées.
+   */
   @Override
   public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
     return metadataProvider.getPokemonMetadata(index);
   }
 
+  /**
+   * Crée un Pokémon avec des statistiques données.
+   * 
+   * @param index L'index du Pokémon à créer.
+   * @param cp Le CP (combat power) du Pokémon.
+   * @param hp Le HP (health points) du Pokémon.
+   * @param dust La quantité de poussière nécessaire pour créer le Pokémon.
+   * @param candy Le nombre de bonbons nécessaires pour créer le Pokémon.
+   * @return Le Pokémon créé, ou {@code null} si les paramètres sont invalides.
+   */
   @Override
   public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
     return pokemonFactory.createPokemon(index, cp, hp, dust, candy);

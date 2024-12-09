@@ -7,13 +7,19 @@ package fr.univavignon.pokedex.api;
  */
 public class PokemonTrainer {
 
-  /** Trainer name. **/
+  /** 
+   * Trainer name. 
+   */
   private final String name;
 
-  /** Trainer team. **/
+  /** 
+   * Trainer team.
+   *  **/
   private final Team team;
 
-  /** Trainer pokedex. **/
+  /**
+   *  Trainer pokedex. 
+   * **/
   private final IPokedex pokedex;
 
   /**
@@ -33,17 +39,23 @@ public class PokemonTrainer {
     this.pokedex = pokedex;
   }
 
-  /** Name getter. **/
+  /** Name getter.
+   * 
+   */
   public String getName() {
     return name;
   }
 
-  /** Team getter. **/
+  /** 
+   * Team getter. 
+   * **/
   public Team getTeam() {
     return team;
   }
 
-  /** Pokedex getter. **/
+  /** 
+   *   Pokedex getter.
+   * **/
   public IPokedex getPokedex() {
     return pokedex;
   }

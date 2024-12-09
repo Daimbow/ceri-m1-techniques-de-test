@@ -7,19 +7,29 @@ package fr.univavignon.pokedex.api;
  */
 public class PokemonMetadata {
 
-  /** Pokemon index. **/
+  /** 
+   * Pokemon index. 
+   * **/
   private final int index;
 
-  /** Pokemon name. **/
+  /** Pokemon name. 
+   * 
+   * **/
   private final String name;
 
-  /** Pokemon attack level. **/
+  /** Pokemon attack level. 
+   * 
+   * **/
   private final int attack;
 
-  /** Pokemon defense level. **/
+  /** Pokemon defense level. 
+   * 
+   * **/
   private final int defense;
 
-  /** Pokemon stamina level. **/
+  /** Pokemon stamina level. 
+   * 
+   * **/
   private final int stamina;
 
   /**
@@ -45,27 +55,37 @@ public class PokemonMetadata {
     this.stamina = stamina;
   }
 
-  /** Index getter. **/
+  /** Index getter. 
+   * 
+   * **/
   public int getIndex() {
     return index;
   }
 
-  /** Name getter. **/
+  /** Name getter. 
+   * 
+   * **/
   public String getName() {
     return name;
   }
 
-  /** Attack level getter. **/
+  /** Attack level getter. 
+   * 
+   * **/
   public int getAttack() {
     return attack;
   }
 
-  /** Defense level getter. **/
+  /** Defense level getter. 
+   * 
+   * **/
   public int getDefense() {
     return defense;
   }
 
-  /** Stamina level getter. **/
+  /** Stamina level getter. 
+   * 
+   * **/
   public int getStamina() {
     return stamina;
   }
