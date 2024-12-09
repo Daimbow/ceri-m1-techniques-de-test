@@ -33,3 +33,4 @@ jobs:
 
       - name: Clean-up
         run: rm -rf ./target/reports/apidocs
+
