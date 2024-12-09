@@ -56,7 +56,6 @@ jobs:
           destination: checkstyle-reports
       
       - codecov/upload
-
   
 workflows:
   sample: 
