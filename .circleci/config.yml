@@ -37,14 +37,20 @@ jobs:
             ./checkstyle-badge.sh
       
       - run:
-          name: Update README avec Checkstyle Badge
+          name: Configurer Git pour utiliser SSH
           command: |
-            badge_url=$(cat target/checkstyle-badge-url.txt)
-            sed -i "s|https://img.shields.io/badge/.*|$badge_url|" README.md
             git config --global user.email "julien-jamme@outlook.com"
             git config --global user.name "Daimbow"
+            git remote set-url origin git@github.com:Daimbow/ceri-m1-techniques-de-test.git
+
+
+      - run:
+          name: Update README avec Checkstyle Badge
+          command: |
+            badge_url=$(cat target/checkstyle/checkstyle-badge-url.txt)
+            sed -i "s|https://img.shields.io/badge/.*|$badge_url|" README.md
             git commit -am "Update Checkstyle badge"
-            git push
+            git push origin master
 
       - store_artifacts:
           path: target/checkstyle-result.xml
