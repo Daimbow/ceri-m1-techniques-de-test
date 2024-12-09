@@ -27,6 +27,10 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:check
       
+      - store_artifacts:
+          path: target/checkstyle-result.xml
+          destination: checkstyle-reports
+      
       - codecov/upload
 
       
