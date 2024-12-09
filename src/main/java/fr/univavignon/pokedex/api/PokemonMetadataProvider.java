@@ -3,7 +3,6 @@ package fr.univavignon.pokedex.api;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
     private final Map<Integer, PokemonMetadata> pokemonMetadataMap;
@@ -23,4 +22,3 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
         return pokemonMetadataMap.get(index);
     }
 }
-

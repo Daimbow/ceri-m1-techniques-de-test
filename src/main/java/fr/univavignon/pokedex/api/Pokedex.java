@@ -5,12 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-
 public class Pokedex implements IPokedex {
     private final List<Pokemon> pokemons;
     private final IPokemonMetadataProvider metadataProvider;
     private final IPokemonFactory pokemonFactory;
-
 
     public Pokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
         this.metadataProvider = metadataProvider;

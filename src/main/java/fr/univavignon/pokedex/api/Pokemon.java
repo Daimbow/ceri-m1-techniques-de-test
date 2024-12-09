@@ -21,20 +21,20 @@ public final class Pokemon extends PokemonMetadata {
 
 	/** IV perfection percentage. **/
 	private final double iv;
-	
+
 	/**
 	 * Default constructor.
 	 * 
-	 * @param index Pokemon index.
-	 * @param name Pokemon name.
-	 * @param attack Attack level.
+	 * @param index   Pokemon index.
+	 * @param name    Pokemon name.
+	 * @param attack  Attack level.
 	 * @param defense Defense level.
 	 * @param stamina Stamina level.
-	 * @param cp Pokemon cp.
-	 * @param hp Pokemon hp.
-	 * @param dust Required dust for upgrading this pokemon.
-	 * @param candy Required candy for upgrading this pokemon.
-	 * @param iv IV perfection percentage.
+	 * @param cp      Pokemon cp.
+	 * @param hp      Pokemon hp.
+	 * @param dust    Required dust for upgrading this pokemon.
+	 * @param candy   Required candy for upgrading this pokemon.
+	 * @param iv      IV perfection percentage.
 	 */
 	public Pokemon(
 			final int index,
@@ -59,7 +59,7 @@ public final class Pokemon extends PokemonMetadata {
 	public int getCp() {
 		return cp;
 	}
-	
+
 	/** HP getter. **/
 	public int getHp() {
 		return hp;
@@ -74,10 +74,10 @@ public final class Pokemon extends PokemonMetadata {
 	public int getCandy() {
 		return candy;
 	}
-	
+
 	/** IV getter. **/
 	public double getIv() {
 		return iv;
 	}
-	
+
 }
