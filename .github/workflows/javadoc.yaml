@@ -1,13 +1,15 @@
-name: Javadoc and Checkstyle Generation and Deployment
+name: Javadoc Generation and Deployment
 
-on: [push]
+on: 
+  push:
+    branches:
+      - master 
 
 jobs:
-  generate-javadoc-and-checkstyle:
+  generate-javadoc:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -17,18 +19,17 @@ jobs:
           distribution: 'temurin'
           java-version: '8.0.432+6'
 
-      - name: Build with Maven Javadoc and Checkstyle
-        run: mvn -B clean javadoc:javadoc checkstyle:checkstyle
+      - name: Build with Maven Javadoc
+        run: mvn -B clean javadoc:javadoc
 
-      - name: Copy Checkstyle report to Javadoc directory
+      - name: Copy Javadoc to deployment directory
         run: |
-          mkdir -p target/reports/apidocs/checkstyle
-          cp target/checkstyle-*.xml target/reports/apidocs/checkstyle/
-      - name: Deploy Javadoc and Checkstyle to GitHub Pages
+          mkdir -p target/reports/apidocs
+          cp -r target/site/apidocs/* target/reports/apidocs/
+
+      - name: Deploy Javadoc to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/reports/apidocs
 
-      - name: Clean-up
-        run: rm -rf ./target/reports/apidocs
