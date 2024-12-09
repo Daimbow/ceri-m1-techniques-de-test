@@ -18,19 +18,11 @@ jobs:
           java-version: '8.0.432+6'
 
       - name: Build with Maven Javadoc and Checkstyle
-        run: mvn -B clean javadoc:javadoc checkstyle:checkstyle
-
-      - name: Copy Checkstyle report to Javadoc directory
-        run: |
-          mkdir -p target/reports/apidocs/checkstyle
-          cp target/checkstyle-*.xml target/reports/apidocs/checkstyle/
+        run: mvn -B clean javadoc:javadoc
 
       - name: Deploy Javadoc and Checkstyle to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/reports/apidocs
-
-      - name: Clean-up
-        run: rm -rf ./target/reports/apidocs
 
