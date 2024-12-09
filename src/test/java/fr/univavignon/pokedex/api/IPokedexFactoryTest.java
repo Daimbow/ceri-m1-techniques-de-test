@@ -10,145 +10,156 @@ import org.mockito.Mockito;
 
 public class IPokedexFactoryTest {
 
-    @Test
-    public void testCreatePokedex_ValidParameters() {
+  @Test
+  public void testCreatePokedex_ValidParameters() {
 
-        IPokemonMetadataProvider mockMetadataProvider = mock(IPokemonMetadataProvider.class);
-        IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
+    IPokemonMetadataProvider mockMetadataProvider = mock(
+        IPokemonMetadataProvider.class);
+    IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
 
-        IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
-        IPokedex mockPokedex = mock(IPokedex.class);
+    IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
+    IPokedex mockPokedex = mock(IPokedex.class);
 
-        Mockito.when(mockPokedexFactory.createPokedex(mockMetadataProvider, mockPokemonFactory))
-                .thenReturn(mockPokedex);
+    Mockito.when(mockPokedexFactory.createPokedex(mockMetadataProvider,
+        mockPokemonFactory)).thenReturn(mockPokedex);
 
-        IPokedex createdPokedex = mockPokedexFactory.createPokedex(mockMetadataProvider, mockPokemonFactory);
+    IPokedex createdPokedex = mockPokedexFactory
+        .createPokedex(mockMetadataProvider, mockPokemonFactory);
 
-        Mockito.verify(mockPokedexFactory).createPokedex(mockMetadataProvider, mockPokemonFactory);
+    Mockito.verify(mockPokedexFactory).createPokedex(mockMetadataProvider,
+        mockPokemonFactory);
 
-        assertNotNull(createdPokedex);
-        assertEquals(mockPokedex, createdPokedex);
-    }
+    assertNotNull(createdPokedex);
+    assertEquals(mockPokedex, createdPokedex);
+  }
 
-    @Test
-    public void testCreatePokedex_NullMetadataProvider() {
+  @Test
+  public void testCreatePokedex_NullMetadataProvider() {
 
-        IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
+    IPokemonFactory mockPokemonFactory = mock(IPokemonFactory.class);
 
-        IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
-        IPokedex mockPokedex = mock(IPokedex.class);
+    IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
+    IPokedex mockPokedex = mock(IPokedex.class);
 
-        Mockito.when(mockPokedexFactory.createPokedex(null, mockPokemonFactory)).thenReturn(null);
-        mockPokedex = mockPokedexFactory.createPokedex(null, mockPokemonFactory);
+    Mockito.when(mockPokedexFactory.createPokedex(null, mockPokemonFactory))
+        .thenReturn(null);
+    mockPokedex = mockPokedexFactory.createPokedex(null, mockPokemonFactory);
 
-        Mockito.verify(mockPokedexFactory).createPokedex(null, mockPokemonFactory);
+    Mockito.verify(mockPokedexFactory).createPokedex(null, mockPokemonFactory);
 
-        assertNull(mockPokedex);
-    }
+    assertNull(mockPokedex);
+  }
 
-    @Test
-    public void testCreatePokedex_NullPokemonFactory() {
+  @Test
+  public void testCreatePokedex_NullPokemonFactory() {
 
-        IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
+    IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
 
-        IPokemonMetadataProvider mockMetadataProvider = mock(IPokemonMetadataProvider.class);
+    IPokemonMetadataProvider mockMetadataProvider = mock(
+        IPokemonMetadataProvider.class);
 
-        IPokedex mockPokedex = mock(IPokedex.class);
+    IPokedex mockPokedex = mock(IPokedex.class);
 
-        Mockito.when(mockPokedexFactory.createPokedex(mockMetadataProvider, null)).thenReturn(null);
-        mockPokedex = mockPokedexFactory.createPokedex(mockMetadataProvider, null);
+    Mockito.when(mockPokedexFactory.createPokedex(mockMetadataProvider, null))
+        .thenReturn(null);
+    mockPokedex = mockPokedexFactory.createPokedex(mockMetadataProvider, null);
 
-        Mockito.verify(mockPokedexFactory).createPokedex(mockMetadataProvider, null);
+    Mockito.verify(mockPokedexFactory).createPokedex(mockMetadataProvider,
+        null);
 
-        assertNull(mockPokedex);
+    assertNull(mockPokedex);
 
-    }
+  }
 
-    @Test
-    public void testCreatePokedex_NullBothParameters() {
+  @Test
+  public void testCreatePokedex_NullBothParameters() {
 
-        IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
+    IPokedexFactory mockPokedexFactory = mock(IPokedexFactory.class);
 
-        IPokedex mockPokedex = mock(IPokedex.class);
+    IPokedex mockPokedex = mock(IPokedex.class);
 
-        Mockito.when(mockPokedexFactory.createPokedex(null, null)).thenReturn(null);
-        mockPokedex = mockPokedexFactory.createPokedex(null, null);
+    Mockito.when(mockPokedexFactory.createPokedex(null, null)).thenReturn(null);
+    mockPokedex = mockPokedexFactory.createPokedex(null, null);
 
-        Mockito.verify(mockPokedexFactory).createPokedex(null, null);
+    Mockito.verify(mockPokedexFactory).createPokedex(null, null);
 
-        assertNull(mockPokedex);
+    assertNull(mockPokedex);
 
-    }
+  }
 
-    // Test implémentation de la classe
+  // Test implémentation de la classe
 
-    @Test
-    public void testCreatePokedex_ValidParameters_Implementation() {
+  @Test
+  public void testCreatePokedex_ValidParameters_Implementation() {
 
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider,
+        pokemonFactory);
 
-        assertNotNull(pokedex);
-        assertEquals(Pokedex.class, pokedex.getClass());
-    }
+    assertNotNull(pokedex);
+    assertEquals(Pokedex.class, pokedex.getClass());
+  }
 
-    @Test
-    public void testCreatePokedex_NullMetadataProvider_Implementation() {
-        IPokemonFactory pokemonFactory = new PokemonFactory(new PokemonMetadataProvider());
+  @Test
+  public void testCreatePokedex_NullMetadataProvider_Implementation() {
+    IPokemonFactory pokemonFactory = new PokemonFactory(
+        new PokemonMetadataProvider());
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex pokedex = pokedexFactory.createPokedex(null, pokemonFactory);
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokedex pokedex = pokedexFactory.createPokedex(null, pokemonFactory);
 
-        assertNull(pokedex);
-    }
+    assertNull(pokedex);
+  }
 
-    @Test
-    public void testCreatePokedex_NullPokemonFactory_Implementation() {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+  @Test
+  public void testCreatePokedex_NullPokemonFactory_Implementation() {
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, null);
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, null);
 
-        assertNull(pokedex);
-    }
+    assertNull(pokedex);
+  }
 
-    @Test
-    public void testCreatePokedex_NullBothParameters_Implementation() {
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex pokedex = pokedexFactory.createPokedex(null, null);
+  @Test
+  public void testCreatePokedex_NullBothParameters_Implementation() {
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokedex pokedex = pokedexFactory.createPokedex(null, null);
 
-        assertNull(pokedex);
-    }
+    assertNull(pokedex);
+  }
 
-    @Test
-    public void testCreatePokedex_Implementation() {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+  @Test
+  public void testCreatePokedex_Implementation() {
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider,
+        pokemonFactory);
 
-        assertNotNull(pokedex);
-        assertEquals(Pokedex.class, pokedex.getClass());
-    }
+    assertNotNull(pokedex);
+    assertEquals(Pokedex.class, pokedex.getClass());
+  }
 
-    @Test
-    public void testCreatePokemon_Exception_Imp() {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider() {
-            @Override
-            public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-                throw new PokedexException("Failed to retrieve metadata");
-            }
-        };
+  @Test
+  public void testCreatePokemon_Exception_Imp() {
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider() {
+      @Override
+      public PokemonMetadata getPokemonMetadata(int index)
+          throws PokedexException {
+        throw new PokedexException("Failed to retrieve metadata");
+      }
+    };
 
-        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
-        Pokemon pokemon = pokemonFactory.createPokemon(0, 500, 100, 1000, 20);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 500, 100, 1000, 20);
 
-        assertNull(pokemon);
-    }
+    assertNull(pokemon);
+  }
 
 }

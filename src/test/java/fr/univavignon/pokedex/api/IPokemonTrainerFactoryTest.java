@@ -10,244 +10,283 @@ import org.mockito.Mockito;
 
 public class IPokemonTrainerFactoryTest {
 
-    @Test
-    public void testCreateTrainer_ValidValuesMystic() {
+  @Test
+  public void testCreateTrainer_ValidValuesMystic() {
 
-        String name = "Ash";
-        Team trainerTeam = Team.MYSTIC;
+    String name = "Ash";
+    Team trainerTeam = Team.MYSTIC;
 
-        IPokedex mockPokedex = Mockito.mock(IPokedex.class);
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    IPokedex mockPokedex = Mockito.mock(IPokedex.class);
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
+    PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory)).thenReturn(Trainer);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory))
+        .thenReturn(Trainer);
 
-        PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory);
+    PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name,
+        trainerTeam, mockPokedexFactory);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, mockPokedexFactory);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam,
+        mockPokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertEquals(mockPokedex, createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertEquals(mockPokedex, createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_ValidValuesInstinct() {
+  @Test
+  public void testCreateTrainer_ValidValuesInstinct() {
 
-        String name = "Ash";
-        Team trainerTeam = Team.INSTINCT;
+    String name = "Ash";
+    Team trainerTeam = Team.INSTINCT;
 
-        IPokedex mockPokedex = Mockito.mock(IPokedex.class);
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    IPokedex mockPokedex = Mockito.mock(IPokedex.class);
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
+    PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory)).thenReturn(Trainer);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory))
+        .thenReturn(Trainer);
 
-        PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory);
+    PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name,
+        trainerTeam, mockPokedexFactory);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, mockPokedexFactory);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam,
+        mockPokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertEquals(mockPokedex, createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertEquals(mockPokedex, createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_ValidValuesValor() {
+  @Test
+  public void testCreateTrainer_ValidValuesValor() {
 
-        String name = "Ash";
-        Team trainerTeam = Team.VALOR;
+    String name = "Ash";
+    Team trainerTeam = Team.VALOR;
 
-        IPokedex mockPokedex = Mockito.mock(IPokedex.class);
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    IPokedex mockPokedex = Mockito.mock(IPokedex.class);
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
+    PokemonTrainer Trainer = new PokemonTrainer(name, trainerTeam, mockPokedex);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory)).thenReturn(Trainer);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory))
+        .thenReturn(Trainer);
 
-        PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory);
+    PokemonTrainer createdTrainer = mockTrainerFactory.createTrainer(name,
+        trainerTeam, mockPokedexFactory);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, mockPokedexFactory);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam,
+        mockPokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertEquals(mockPokedex, createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertEquals(mockPokedex, createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_NullName() {
+  @Test
+  public void testCreateTrainer_NullName() {
 
-        Team trainerTeam = Team.MYSTIC;
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    Team trainerTeam = Team.MYSTIC;
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        Mockito.when(mockTrainerFactory.createTrainer(null, trainerTeam, mockPokedexFactory)).thenReturn(null);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(null, trainerTeam, mockPokedexFactory))
+        .thenReturn(null);
 
-        PokemonTrainer Trainer = mockTrainerFactory.createTrainer(null, trainerTeam, mockPokedexFactory);
+    PokemonTrainer Trainer = mockTrainerFactory.createTrainer(null, trainerTeam,
+        mockPokedexFactory);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(null, trainerTeam, mockPokedexFactory);
+    Mockito.verify(mockTrainerFactory).createTrainer(null, trainerTeam,
+        mockPokedexFactory);
 
-        assertNull(Trainer);
+    assertNull(Trainer);
 
-    }
+  }
 
-    @Test
-    public void testCreateTrainer_EmptyName() {
+  @Test
+  public void testCreateTrainer_EmptyName() {
 
-        String name = "";
-        Team trainerTeam = Team.MYSTIC;
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    String name = "";
+    Team trainerTeam = Team.MYSTIC;
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory)).thenReturn(null);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory))
+        .thenReturn(null);
 
-        PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory);
+    PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam,
+        mockPokedexFactory);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, mockPokedexFactory);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam,
+        mockPokedexFactory);
 
-        assertNull(Trainer);
+    assertNull(Trainer);
 
-    }
+  }
 
-    @Test
-    public void testCreateTrainer_NullPokedexFactory() {
+  @Test
+  public void testCreateTrainer_NullPokedexFactory() {
 
-        String name = "Ash";
-        Team trainerTeam = Team.MYSTIC;
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+    String name = "Ash";
+    Team trainerTeam = Team.MYSTIC;
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, null)).thenReturn(null);
+    Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, null))
+        .thenReturn(null);
 
-        PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam, null);
+    PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam,
+        null);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, null);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, null);
 
-        assertNull(Trainer);
-    }
+    assertNull(Trainer);
+  }
 
-    @Test
-    public void testCreateTrainer_NullTeam() {
+  @Test
+  public void testCreateTrainer_NullTeam() {
 
-        String name = "Ash";
-        Team trainerTeam = null;
-        IPokemonTrainerFactory mockTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
-        IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
+    String name = "Ash";
+    Team trainerTeam = null;
+    IPokemonTrainerFactory mockTrainerFactory = Mockito
+        .mock(IPokemonTrainerFactory.class);
+    IPokedexFactory mockPokedexFactory = Mockito.mock(IPokedexFactory.class);
 
-        Mockito.when(mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory)).thenReturn(null);
+    Mockito.when(
+        mockTrainerFactory.createTrainer(name, trainerTeam, mockPokedexFactory))
+        .thenReturn(null);
 
-        PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam, null);
+    PokemonTrainer Trainer = mockTrainerFactory.createTrainer(name, trainerTeam,
+        null);
 
-        Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, null);
+    Mockito.verify(mockTrainerFactory).createTrainer(name, trainerTeam, null);
 
-        assertNull(Trainer);
-    }
+    assertNull(Trainer);
+  }
 
-    // Implémentation de la classe
+  // Implémentation de la classe
 
-    @Test
-    public void testCreateTrainer_ValidValuesMystic_Implementation() {
-        String name = "Ash";
-        Team trainerTeam = Team.MYSTIC;
+  @Test
+  public void testCreateTrainer_ValidValuesMystic_Implementation() {
+    String name = "Ash";
+    Team trainerTeam = Team.MYSTIC;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, pokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertNotNull(createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertNotNull(createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_ValidValuesInstinct_Implementation() {
-        String name = "Ash";
-        Team trainerTeam = Team.INSTINCT;
+  @Test
+  public void testCreateTrainer_ValidValuesInstinct_Implementation() {
+    String name = "Ash";
+    Team trainerTeam = Team.INSTINCT;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, pokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertNotNull(createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertNotNull(createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_ValidValuesValor_Implementation() {
-        String name = "Ash";
-        Team trainerTeam = Team.VALOR;
+  @Test
+  public void testCreateTrainer_ValidValuesValor_Implementation() {
+    String name = "Ash";
+    Team trainerTeam = Team.VALOR;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, pokedexFactory);
 
-        assertNotNull(createdTrainer);
-        assertEquals(name, createdTrainer.getName());
-        assertEquals(trainerTeam, createdTrainer.getTeam());
-        assertNotNull(createdTrainer.getPokedex());
-    }
+    assertNotNull(createdTrainer);
+    assertEquals(name, createdTrainer.getName());
+    assertEquals(trainerTeam, createdTrainer.getTeam());
+    assertNotNull(createdTrainer.getPokedex());
+  }
 
-    @Test
-    public void testCreateTrainer_NullName_Implementation() {
-        Team trainerTeam = Team.MYSTIC;
+  @Test
+  public void testCreateTrainer_NullName_Implementation() {
+    Team trainerTeam = Team.MYSTIC;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(null, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(null,
+        trainerTeam, pokedexFactory);
 
-        assertNull(createdTrainer);
-    }
+    assertNull(createdTrainer);
+  }
 
-    @Test
-    public void testCreateTrainer_EmptyName_Implementation() {
-        String name = "";
-        Team trainerTeam = Team.MYSTIC;
+  @Test
+  public void testCreateTrainer_EmptyName_Implementation() {
+    String name = "";
+    Team trainerTeam = Team.MYSTIC;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, pokedexFactory);
 
-        assertNull(createdTrainer);
-    }
+    assertNull(createdTrainer);
+  }
 
-    @Test
-    public void testCreateTrainer_NullPokedexFactory_Implementation() {
-        String name = "Ash";
-        Team trainerTeam = Team.MYSTIC;
+  @Test
+  public void testCreateTrainer_NullPokedexFactory_Implementation() {
+    String name = "Ash";
+    Team trainerTeam = Team.MYSTIC;
 
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, null);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, null);
 
-        assertNull(createdTrainer);
-    }
+    assertNull(createdTrainer);
+  }
 
-    @Test
-    public void testCreateTrainer_NullTeam_Implementation() {
-        String name = "Ash";
-        Team trainerTeam = null;
+  @Test
+  public void testCreateTrainer_NullTeam_Implementation() {
+    String name = "Ash";
+    Team trainerTeam = null;
 
-        IPokedexFactory pokedexFactory = new PokedexFactory();
-        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+    IPokedexFactory pokedexFactory = new PokedexFactory();
+    IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
 
-        PokemonTrainer createdTrainer = trainerFactory.createTrainer(name, trainerTeam, pokedexFactory);
+    PokemonTrainer createdTrainer = trainerFactory.createTrainer(name,
+        trainerTeam, pokedexFactory);
 
-        assertNull(createdTrainer);
-    }
+    assertNull(createdTrainer);
+  }
 
 }

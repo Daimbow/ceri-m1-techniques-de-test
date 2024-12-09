@@ -13,7 +13,8 @@ public final class PokedexException extends Exception {
   /**
    * Default constructor.
    *
-   * @param message Error message.
+   * @param message
+   *          Error message.
    * @see Exception#Exception(String)
    */
   public PokedexException(final String message) {
