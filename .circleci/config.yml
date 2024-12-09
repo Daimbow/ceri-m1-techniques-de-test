@@ -32,9 +32,6 @@ jobs:
       - store_artifacts:
           path: target/checkstyle-result.html
           destination: checkstyle-reports
-
-          path: target/checkstyle/checkstyle.html
-          destination: checkstyle-reportss
       
       - codecov/upload
 
