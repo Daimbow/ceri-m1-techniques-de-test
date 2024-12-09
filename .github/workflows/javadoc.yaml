@@ -22,11 +22,6 @@ jobs:
       - name: Build with Maven Javadoc
         run: mvn -B clean javadoc:javadoc
 
-      - name: Copy Javadoc to deployment directory
-        run: |
-          mkdir -p target/reports/apidocs
-          cp -r target/site/apidocs/* target/reports/apidocs/
-
       - name: Deploy Javadoc to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
