@@ -30,9 +30,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/reports/apidocs
-
-      - name: Upload Checkstyle HTML report as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: checkstyle-report
-          path: ./target/checkstyle-report.html
