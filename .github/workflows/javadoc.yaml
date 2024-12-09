@@ -1,6 +1,9 @@
 name: Javadoc Generation and Deployment
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   generate-javadoc:
