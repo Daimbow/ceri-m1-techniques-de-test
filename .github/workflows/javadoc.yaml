@@ -26,3 +26,4 @@ jobs:
           github_token: ${{ secrets.DOC_TOKEN }}
           publish_dir: ./target/reports/apidocs
 
+
