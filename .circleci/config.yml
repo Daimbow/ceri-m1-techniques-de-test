@@ -24,33 +24,18 @@ jobs:
           command: mvn test
 
       - run:
-          name: Execute Checkstyle
+          name: Run Checkstyle
           command: mvn checkstyle:check
       
-      - run:
-          name: permission pour .sh
-          command: chmod +x ./checkstyle-badge.sh
 
-      - run:
-          name: Génère Checkstyle Badge
-          command: |
-            ./checkstyle-badge.sh
-
-      - run:
-          name: Update README avec Checkstyle Badge
-          command: |
-            git config --global user.email "julien-jamme@outlook.com"
-            git config --global user.name "Daimbow"
-            badge_url=$(cat target/checkstyle-badge-url.txt)
-            sed -i "s|https://img.shields.io/badge/.*|$badge_url|" README.md
-            git commit -am "Update Checkstyle badge"
-            git push origin master
-
+      
       - store_artifacts:
           path: target/checkstyle-result.xml
           destination: checkstyle-reports
       
       - codecov/upload
+
+      
   
 workflows:
   sample: 

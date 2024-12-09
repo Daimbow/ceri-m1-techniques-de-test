@@ -1,0 +1,48 @@
+name: Javadoc and Checkstyle Generation and Deployment
+
+on:
+  push:
+    branches:
+      - main   
+
+jobs:
+  generate-javadoc-and-checkstyle:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adoptopenjdk'
+
+      - name: Génère Javadoc et Checkstyle rapports
+        run: mvn clean javadoc:javadoc checkstyle:check
+
+      - name: Configure pour GitHub Pages
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Deploie Javadoc and Checkstyle reports sur la branche gh-pahes
+        run: |
+          mkdir -p gh-pages/javadoc
+          cp -r target/apidocs/* gh-pages/javadoc/
+
+          mkdir -p gh-pages/checkstyle
+          cp -r target/checkstyle/* gh-pages/checkstyle/
+
+          cd gh-pages
+          git init
+          git add .
+          git commit -m "Publish Javadoc and Checkstyle reports"
+
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git push --force origin master:gh-pages
+
+      - name: Clean-up
+        run: rm -rf gh-pages
