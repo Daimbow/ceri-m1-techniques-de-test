@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Update README avec Checkstyle Badge
           command: |
-            badge_url=$(cat target/checkstyle/checkstyle-badge-url.txt)
+            badge_url=$(cat target/checkstyle-badge-url.txt)
             sed -i "s|https://img.shields.io/badge/.*|$badge_url|" README.md
             git config --global user.email "julien-jamme@outlook.com"
             git config --global user.name "Daimbow"
