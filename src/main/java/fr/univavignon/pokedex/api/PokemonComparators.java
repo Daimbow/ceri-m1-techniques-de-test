@@ -9,18 +9,26 @@ import java.util.Comparator;
  */
 public enum PokemonComparators implements Comparator<Pokemon> {
 
-  /** Comparator using Pokemon name. **/
+  /** 
+   * Comparator using Pokemon name. **
+   * /
   NAME(Comparator.comparing(Pokemon::getName)),
 
-  /** Comparator using Pokemon index. **/
+  /** 
+   * Comparator using Pokemon index. 
+   */
   INDEX(Comparator.comparing(Pokemon::getIndex)),
 
-  /** Comparator using Pokemon combat point. **/
+  /** Comparator using Pokemon combat point. 
+   * Comparator using Pokemon combat point. 
+   */
   CP(Comparator.comparing(Pokemon::getCp))
 
   ;
 
-  /** Delegate comparator instance. **/
+  /** 
+   * Delegate comparator instance. 
+   * **/
   private final Comparator<Pokemon> delegate;
 
   /**
@@ -33,7 +41,9 @@ public enum PokemonComparators implements Comparator<Pokemon> {
     this.delegate = delegate;
   }
 
-  /** {@inheritDoc} **/
+  /** 
+   * {@inheritDoc} 
+   * **/
   @Override
   public int compare(final Pokemon first, final Pokemon second) {
 
