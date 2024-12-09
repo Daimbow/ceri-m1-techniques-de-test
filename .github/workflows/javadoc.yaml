@@ -20,12 +20,11 @@ jobs:
           java-version: '8.0.432+6'
 
       - name: Build with Maven JavaDoc
-          run: |
-            mvn -B javadoc:javadoc
+        run: |
+          mvn -B javadoc:javadoc
 
       - name: Deploy
-          uses: peaceiris/actions-gh-pages@v4
-          with:
-            github_token: ${{ secrets.DOC_TOKEN }}
-            publish_dir: ./target/reports/apidocs
-            
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.DOC_TOKEN }}
+          publish_dir: ./target/reports/apidocs
