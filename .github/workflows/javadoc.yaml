@@ -3,7 +3,7 @@ name: Javadoc Generation and Deployment
 on:
   push:
     branches:
-      - master
+      - master  
 
 jobs:
   generate-javadoc:
@@ -23,9 +23,8 @@ jobs:
         run: |
           mvn -B javadoc:javadoc
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.DOC_TOKEN }}
-          publish_dir: ./target/reports/apidocs
-
+          publish_dir: ./target/reports/apidocs  
