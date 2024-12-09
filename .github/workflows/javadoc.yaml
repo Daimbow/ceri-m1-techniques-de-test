@@ -3,7 +3,7 @@ name: Javadoc and Checkstyle Generation and Deployment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   generate-javadoc-and-checkstyle:
