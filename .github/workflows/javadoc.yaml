@@ -1,12 +1,12 @@
-name: Javadoc Generation and Deployment
+name: Javadoc Generation and Checkstyle
 
-on: 
+on:
   push:
     branches:
       - master
 
 jobs:
-  generate-javadoc:
+  generate-javadoc-and-checkstyle:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,13 +19,19 @@ jobs:
           distribution: 'temurin'
           java-version: '8.0.432+6'
 
-      - name: Build with Maven Javadoc
-        run: mvn -B javadoc:javadoc
+      - name: Build with Maven Javadoc and Checkstyle
+        run: mvn -B clean javadoc:javadoc checkstyle:checkstyle
+
+      - name: Generate Checkstyle HTML report
+        run: |
+          mvn checkstyle:checkstyle
+          mkdir -p ./target/reports/checkstyle/html
+          xsltproc -o ./target/reports/checkstyle/html/checkstyle-report.html ./target/checkstyle-*.xml
 
       - name: List files in the target directory
         run: ls -R ./target
 
-      - name: Deploy Javadoc to GitHub Pages
+      - name: Deploy Javadoc and Checkstyle HTML report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
