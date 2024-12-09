@@ -28,6 +28,10 @@ jobs:
           command: mvn checkstyle:check
       
       - run:
+          name: permission pour .sh
+          command: chmod +x ./checkstyle-badge.sh
+
+      - run:
           name: Génère Checkstyle Badge
           command: |
             ./checkstyle-badge.sh
