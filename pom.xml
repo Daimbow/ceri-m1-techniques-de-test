@@ -81,6 +81,9 @@
 	    <configLocation>google_checks.xml</configLocation>
 	    <reportOutputDirectory>${project.build.directory}/checkstyle</reportOutputDirectory>
       <outputFileName>checkstyle-report.html</outputFileName> 
+        <formatter>
+          <type>html</type> 
+        </formatter>
 	  </configuration>
 	</plugin>
     
