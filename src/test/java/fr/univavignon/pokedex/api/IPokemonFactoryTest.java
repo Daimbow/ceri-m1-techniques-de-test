@@ -203,7 +203,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_ValidValues_IndexZero_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
@@ -217,7 +218,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_ValidValues_IndexOneThirtyThree_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
     Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
     assertNotNull(pokemon);
@@ -230,7 +232,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidIndexZero_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
 
@@ -240,7 +243,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
 
@@ -250,7 +254,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidCP_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
 
@@ -260,7 +265,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidHP_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
 
@@ -270,7 +276,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidDust_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
 
@@ -280,7 +287,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidCandy_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
 
@@ -290,7 +298,8 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_ValidValues_MinStat_Imp() {
-    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
