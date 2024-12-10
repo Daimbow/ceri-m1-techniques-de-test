@@ -17,7 +17,7 @@ public class PokemonFactory implements IPokemonFactory {
   }
 
   /**
-   * Crée un Pokémon avec les caractéristiques données et les métadonnées associées
+   * Crée un Pokémon avec les caractéristiques associées
    * pour le Pokémon d'un index donné.
    * 
    * @param index L'index du Pokémon à créer. L'index doit être compris entre 0 et 149 inclus.
@@ -26,7 +26,7 @@ public class PokemonFactory implements IPokemonFactory {
    * @param dust La quantité de poussière nécessaire pour le Pokémon.
    * @param candy Le nombre de bonbons nécessaires pour le Pokémon.
    * @return Un objet {@link Pokemon} avec les caractéristiques spécifiées, ou {@code null}
-   *         si l'index est invalide ou si des paramètres sont incorrects.
+   * si l'index est invalide ou si des paramètres sont incorrects.
    */
   @Override
   public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
