@@ -203,7 +203,6 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_ValidValues_IndexZero_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
@@ -218,7 +217,6 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_ValidValues_IndexOneThirtyThree_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
     Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
@@ -232,67 +230,66 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testCreatePokemon_InvalidIndexZero_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals("MISSINGNO", pokemon.getName());
   }
 
   @Test
   public void testCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals("MISSINGNO", pokemon.getName());
   }
 
   @Test
   public void testCreatePokemon_InvalidCP_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals(613, pokemon.getCp());
   }
 
   @Test
   public void testCreatePokemon_InvalidHP_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals(64, pokemon.getHp());
   }
 
   @Test
   public void testCreatePokemon_InvalidDust_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals(4000, pokemon.getDust());
   }
 
   @Test
   public void testCreatePokemon_InvalidCandy_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
 
-    assertNull(pokemon);
+    assertNotNull(pokemon);
+    assertEquals(4, pokemon.getCandy());
   }
 
   @Test
   public void testCreatePokemon_ValidValues_MinStat_Imp() {
-    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
@@ -307,110 +304,101 @@ public class IPokemonFactoryTest {
 
   @Test
   public void testRocketCreatePokemon_ValidValues_IndexZero_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals("MISSINGNO", pokemon.getName()); 
-      assertEquals(613, pokemon.getCp());
-      assertEquals(64, pokemon.getHp());
-      assertEquals(4000, pokemon.getDust());
-      assertEquals(4, pokemon.getCandy());
+    assertNotNull(pokemon);
+    assertEquals("MISSINGNO", pokemon.getName());
+    assertEquals(613, pokemon.getCp());
+    assertEquals(64, pokemon.getHp());
+    assertEquals(4000, pokemon.getDust());
+    assertEquals(4, pokemon.getCandy());
   }
 
   @Test
   public void testRocketCreatePokemon_ValidValues_IndexOneThirtyThree_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals("Aquali", pokemon.getName()); 
-      assertEquals(2729, pokemon.getCp());
-      assertEquals(202, pokemon.getHp());
-      assertEquals(5000, pokemon.getDust());
-      assertEquals(4, pokemon.getCandy());
+    assertNotNull(pokemon);
+    assertEquals("Aquali", pokemon.getName());
+    assertEquals(2729, pokemon.getCp());
+    assertEquals(202, pokemon.getHp());
+    assertEquals(5000, pokemon.getDust());
+    assertEquals(4, pokemon.getCandy());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidIndexZero_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals("MISSINGNO", pokemon.getName()); 
+    assertNotNull(pokemon);
+    assertEquals("MISSINGNO", pokemon.getName());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals("MISSINGNO", pokemon.getName()); 
+    assertNotNull(pokemon);
+    assertEquals("MISSINGNO", pokemon.getName());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidCP_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals(613, pokemon.getCp()); 
+    assertNotNull(pokemon);
+    assertEquals(613, pokemon.getCp());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidHP_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals(64, pokemon.getHp()); 
+    assertNotNull(pokemon);
+    assertEquals(64, pokemon.getHp());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidDust_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
 
-      assertNotNull(pokemon);
-      assertEquals(4000, pokemon.getDust());
+    assertNotNull(pokemon);
+    assertEquals(4000, pokemon.getDust());
   }
 
   @Test
   public void testRocketCreatePokemon_InvalidCandy_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
 
-      assertNotNull(pokemon);
-      assertEquals(4, pokemon.getCandy()); 
+    assertNotNull(pokemon);
+    assertEquals(4, pokemon.getCandy());
   }
 
   @Test
   public void testRocketCreatePokemon_ValidValues_MinStat_Imp() {
-      IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
-      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
-      Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
-      assertNotNull(pokemon);
-      assertEquals(50, pokemon.getAttack()); 
-      assertEquals(50, pokemon.getStamina());
+    assertNotNull(pokemon);
+    assertEquals(50, pokemon.getAttack());
+    assertEquals(50, pokemon.getStamina());
   }
 
 }
