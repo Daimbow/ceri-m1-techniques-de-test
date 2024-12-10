@@ -10,7 +10,7 @@ public class PokemonFactory implements IPokemonFactory {
   /**
    * Constructeur qui initialise le fournisseur de métadonnées.
    * 
-   * @param metadataProvider Le fournisseur de métadonnées pour les Pokémons.
+   * @param metadataProvider Le fournisseur de métadonnées pour les Pokémon.
    */
   public PokemonFactory(IPokemonMetadataProvider metadataProvider) {
     this.metadataProvider = metadataProvider;
@@ -26,7 +26,7 @@ public class PokemonFactory implements IPokemonFactory {
    * @param dust La quantité de poussière nécessaire pour le Pokémon.
    * @param candy Le nombre de bonbons nécessaires pour le Pokémon.
    * @return Un objet {@link Pokemon} avec les caractéristiques spécifiées, ou {@code null}
-   * si l'index est invalide ou si des paramètres sont incorrects.
+   *         si l'index est invalide ou si des paramètres sont incorrects.
    */
   @Override
   public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
