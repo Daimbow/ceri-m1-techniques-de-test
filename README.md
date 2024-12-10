@@ -1,5 +1,8 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+- Nom, prénom : JAMME Julien
+- Groupe : Alternance / ILSEN M1
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
@@ -38,8 +41,6 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ## Informations supplémentaires
 
-- Nom, prénom : JAMME Julien
-- Groupe : Alternance / ILSEN M1
 - Badge CircleCI : [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Daimbow/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Daimbow/ceri-m1-techniques-de-test/tree/master)
 - Badge couverture de test : [![codecov](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test/graph/badge.svg?token=ITXLY2VFN4)](https://codecov.io/gh/Daimbow/ceri-m1-techniques-de-test)
 
