@@ -3,6 +3,7 @@ package fr.univavignon.pokedex.api;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -372,6 +373,63 @@ public class IPokemonFactoryTest {
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
 
     assertNull(pokemon);
+  }
+
+  @Test
+  public void testRocketCreatePokemon_valid_Stamina_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertTrue( pokemon.getStamina() >= 0);
+
+  }
+  
+  @Test
+  public void testRocketCreatePokemon_Invalid_Stamina_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertNull(pokemon);
+  }
+  
+  @Test
+  public void testRocketCreatePokemon_valid_defense_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertTrue( pokemon.getDefense() >= 0);
+
+  }
+  
+  @Test
+  public void testRocketCreatePokemon_Invalid_defense_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertNull(pokemon);
+  }
+  
+  @Test
+  public void testRocketCreatePokemon_valid_attack_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertTrue( pokemon.getAttack() >= 0);
+
+  }
+  
+  @Test
+  public void testRocketCreatePokemon_Invalid_attack_Imp() {
+      IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+      Pokemon pokemon = pokemonFactory.createPokemon(1, 613, 64, 4000, 4);
+
+      assertNull(pokemon);
   }
 
 
