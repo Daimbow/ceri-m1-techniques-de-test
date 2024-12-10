@@ -52,3 +52,10 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ![CircleCI](https://circleci.com/gh/Daimbow/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
 
 
+## Rapport TP6
+
+Cette classe présente plusieurs problèmes causés par la Team Rocket. 
+La gestion des index des Pokémon est incorrecte : les index valides doivent être compris entre 0 et 150, et toute valeur en dehors de cet intervalle devrait déclencher une erreur. 
+De plus, la génération aléatoire des statistiques, telles que la stamina, la défense et l'attaque, peut produire des valeurs négatives, ce qui est invalide. 
+Pour remédier à ces problèmes, j'ai mis en place des tests dans la classe IPokemonFactoryTest, en suivant une approche TDD. 
+Ces tests serviront de base pour l’implémentation future de la classe RocketPokemonFactory, permettant ainsi aux développeurs de corriger les erreurs tout en respectant les contraintes définies.
