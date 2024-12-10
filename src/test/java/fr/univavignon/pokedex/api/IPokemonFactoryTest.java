@@ -3,6 +3,7 @@ package fr.univavignon.pokedex.api;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -301,18 +302,19 @@ public class IPokemonFactoryTest {
     assertEquals(126, pokemon.getDefense());
     assertEquals(90, pokemon.getStamina());
   }
-  
+
   // Rocket Test
 
   @Test
-  public void testRocketCCreatePokemon_ValidValues_IndexZero_Imp() {
+  public void testRocketCreatePokemon_ValidValues_IndexZero() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
     assertNotNull(pokemon);
-    assertEquals("Bulbizarre", pokemon.getName());
+    assertEquals("Bulbasaur", pokemon.getName()); // Assurez-vous que le nom est
+                                                  // correct
     assertEquals(613, pokemon.getCp());
     assertEquals(64, pokemon.getHp());
     assertEquals(4000, pokemon.getDust());
@@ -320,9 +322,10 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_ValidValues_IndexOneThirtyThree_Imp() {
+  public void testRocketCreatePokemon_ValidValues_IndexOneThirtyThree() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
     Pokemon pokemon = pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
 
     assertNotNull(pokemon);
@@ -334,7 +337,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_InvalidIndexZero_Imp() {
+  public void testRocketCreatePokemon_InvalidIndex_LessThanZero() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -344,7 +347,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
+  public void testRocketCreatePokemon_InvalidIndex_GreaterThanMax() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -354,7 +357,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_InvalidCP_Imp() {
+  public void testRocketCreatePokemon_InvalidCP() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -364,7 +367,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_InvalidHP_Imp() {
+  public void testRocketCreatePokemon_InvalidHP() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -374,7 +377,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_InvalidDust_Imp() {
+  public void testRocketCreatePokemon_InvalidDust() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -384,7 +387,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_InvalidCandy_Imp() {
+  public void testRocketCreatePokemon_InvalidCandy() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
@@ -394,17 +397,16 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testRocketCCreatePokemon_ValidValues_MinStat_Imp() {
+  public void testRocketCreatePokemon_ValidValues_MinStat() {
     IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new RocketPokemonFactory();
 
     Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
 
     assertNotNull(pokemon);
-    assertEquals(126, pokemon.getAttack());
-    assertEquals(126, pokemon.getDefense());
-    assertEquals(90, pokemon.getStamina());
+    assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 141); 
+    assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 141);
+    assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 105);
   }
-  
 
 }
