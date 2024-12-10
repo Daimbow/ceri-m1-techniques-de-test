@@ -9,7 +9,6 @@ import java.util.List;
  * Implémente l'interface {@link IPokedex}, cette classe représente un Pokédex contenant
  * une liste de Pokémon. Elle permet de gérer les Pokémon et leurs métadonnées via
  * un fournisseur de métadonnées et une fabrique de Pokémon.
- * 
  */
 public class Pokedex implements IPokedex {
   private final List<Pokemon> pokemons;
@@ -100,7 +99,7 @@ public class Pokedex implements IPokedex {
    * @param index L'index du Pokémon pour lequel récupérer les métadonnées.
    * @return Les métadonnées du Pokémon.
    * @throws PokedexException Si l'index est invalide ou si un problème survient lors
-   *                           de la récupération des métadonnées.
+   *  de la récupération des métadonnées.
    */
   @Override
   public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {

@@ -9,7 +9,7 @@ package fr.univavignon.pokedex.api;
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
 
   /**
-   * Crée un entraîneur de Pokémon avec le nom, l'équipe et un Pokédex créé
+   * Crée un entraîneur de Pokémon avec le nom, l'équipe et un Pokédex créé.
    */
   @Override
   public PokemonTrainer createTrainer(String name, Team team,

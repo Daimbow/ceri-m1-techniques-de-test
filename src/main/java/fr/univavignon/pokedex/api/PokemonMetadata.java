@@ -13,22 +13,18 @@ public class PokemonMetadata {
   private final int index;
 
   /** Pokemon name. 
-   * 
    * **/
   private final String name;
 
   /** Pokemon attack level. 
-   * 
    * **/
   private final int attack;
 
   /** Pokemon defense level. 
-   * 
    * **/
   private final int defense;
 
   /** Pokemon stamina level. 
-   * 
    * **/
   private final int stamina;
 
@@ -56,35 +52,30 @@ public class PokemonMetadata {
   }
 
   /** Index getter. 
-   * 
    * **/
   public int getIndex() {
     return index;
   }
 
   /** Name getter. 
-   * 
    * **/
   public String getName() {
     return name;
   }
 
   /** Attack level getter. 
-   * 
    * **/
   public int getAttack() {
     return attack;
   }
 
   /** Defense level getter. 
-   * 
    * **/
   public int getDefense() {
     return defense;
   }
 
   /** Stamina level getter. 
-   * 
    * **/
   public int getStamina() {
     return stamina;
