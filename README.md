@@ -51,5 +51,4 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ![CircleCI](https://circleci.com/gh/Daimbow/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
 
-![Checkstyle Badge](https://img.shields.io/badge/Errors:3-red?style=flat-square)
 
