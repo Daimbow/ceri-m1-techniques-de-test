@@ -3,10 +3,16 @@ package fr.univavignon.pokedex.api;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Cette classe implémente l'interface {@link IPokemonMetadataProvider} et fournit 
+ * les métadonnées des Pokémon pour un index donné.
+ */
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
   private final Map<Integer, PokemonMetadata> pokemonMetadataMap;
 
+  /**Constructeur qui initialise les métadonnées des Pokémon dans la carte.
+   */
   public PokemonMetadataProvider() {
     this.pokemonMetadataMap = new HashMap<>();
     pokemonMetadataMap.put(0,
