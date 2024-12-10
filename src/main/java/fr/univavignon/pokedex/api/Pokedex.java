@@ -6,7 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Implémente l'interface {@link IPokedex}, cette classe représente un Pokédex contenant une liste de Pokémon. 
+ * Implémente l'interface {@link IPokedex}. 
+ * cette classe représente un Pokédex contenant une liste de Pokémon
  * Elle permet de gérer les Pokémon et leurs métadonnées via
  * un fournisseur de métadonnées et une fabrique de Pokémon.
  */
@@ -17,7 +18,6 @@ public class Pokedex implements IPokedex {
 
   /**
    * Constructeur pour initialiser une nouvelle instance de la classe Pokedex.
-   * 
    * Ce constructeur permet d'initialiser le fournisseur de métadonnées des Pokémon 
    * et la fabrique de Pokémon, puis crée une liste vide pour stocker les Pokémon.
    * 
@@ -98,7 +98,7 @@ public class Pokedex implements IPokedex {
    * 
    * @param index L'index du Pokémon pour lequel récupérer les métadonnées.
    * @return Les métadonnées du Pokémon.
-   * @throws PokedexException Si l'index est invalide ou si un problème survient lors de la récupération des métadonnées.
+   * @throws PokedexException Si l'index est invalide.
    */
   @Override
   public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
