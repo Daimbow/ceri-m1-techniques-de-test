@@ -49,7 +49,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ## Rapports
 
-![CircleCI](https://circleci.com/gh/Daimbow/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
+Le rapport checkstyle.xml se trouve dans circleCI dans le l'onglet Artifcats sur le build 
 
 
 ## Rapport TP6
