@@ -301,5 +301,78 @@ public class IPokemonFactoryTest {
     assertEquals(126, pokemon.getDefense());
     assertEquals(90, pokemon.getStamina());
   }
+  
+  // Test implémentation de la classe rocket
+
+  @Test
+  public void testRocketCreatePokemon_ValidValues_IndexZero_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
+
+    assertNotNull(pokemon);
+    assertEquals("Bulbasaur", pokemon.getName());
+    assertEquals(613, pokemon.getCp());
+    assertEquals(64, pokemon.getHp());
+    assertEquals(4000, pokemon.getDust());
+    assertEquals(4, pokemon.getCandy());
+  }
+
+
+  @Test
+  public void testRocketCreatePokemon_InvalidIndexZero_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(-1, 613, 64, 4000, 4);
+    assertNull(pokemon);
+  }
+
+  @Test
+  public void testRocketCreatePokemon_InvalidIndexOneFiftyOne_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(151, 613, 64, 4000, 4);
+
+    assertNull(pokemon);
+  }
+
+  @Test
+  public void testRocketCreatePokemon_InvalidCP_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(0, -1, 64, 4000, 4);
+
+    assertNull(pokemon);
+  }
+
+  @Test
+  public void testRocketCreatePokemon_InvalidHP_Imp() {
+    IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider();
+    IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, -1, 4000, 4);
+
+    assertNull(pokemon);
+
+  }
+
+  @Test
+  public void testROcketCreatePokemon_InvalidDust_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, -1, 4);
+
+    assertNull(pokemon);
+  }
+
+  @Test
+  public void testRocketCreatePokemon_InvalidCandy_Imp() {
+    IPokemonFactory pokemonFactory = new RocketPokemonFactory();
+
+    Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, -1);
+
+    assertNull(pokemon);
+  }
+
 
 }
