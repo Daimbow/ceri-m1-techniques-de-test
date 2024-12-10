@@ -10,7 +10,7 @@ public class PokemonFactory implements IPokemonFactory {
   /**
    * Constructeur qui initialise le fournisseur de métadonnées.
    * 
-   * @param metadataProvider Le fournisseur de métadonnées pour les Pokémon.
+   * @param metadataProvider Le fournisseur de métadonnées pour les Pokémons.
    */
   public PokemonFactory(IPokemonMetadataProvider metadataProvider) {
     this.metadataProvider = metadataProvider;
